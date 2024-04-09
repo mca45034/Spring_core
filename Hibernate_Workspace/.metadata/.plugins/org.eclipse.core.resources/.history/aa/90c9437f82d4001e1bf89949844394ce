@@ -1,0 +1,8 @@
+package com.rays.inheritencetablepersubclass;
+
+public class Snippet {
+	public static void main(String[] args) {
+		com.rays.inheritencetablepersubclass
+	}
+}
+

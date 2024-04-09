@@ -1,0 +1,22 @@
+package com.rays.criteria;
+
+import org.hibernate.Criteria;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
+
+import in.co.rays.userdto.UserDTO;
+
+public class TestCriteriaOr {
+
+	public static void main(String[] args) {
+		SessionFactory sf=new Configuration().configure().buildSessionFactory();
+		Session session=sf.openSession();
+		Transaction tx=session.beginTransaction();
+		Criteria criteria=session.createCriteria(UserDTO.class);
+		criteria.add(Restrictions.or(Restrictions.ilike("F_NAME", "s%"),Restrictions.like("L_NAME", "x%")))
+	}
+
+}
