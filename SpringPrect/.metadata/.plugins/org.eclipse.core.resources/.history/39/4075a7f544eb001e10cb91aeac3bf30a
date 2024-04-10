@@ -1,0 +1,50 @@
+package com.rays.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.rays.dao.EmployeDAOInt;
+import com.rays.dto.EmployeDTO;
+@Service
+public class EmployeServiceImp implements EmployeDAOInt{
+	private EmployeDAOInt dao;
+ @Transactional(propagation = Propagation.REQUIRED) 
+	public long add(EmployeDTO dto) {
+		long pk=dao.add(dto);
+		return pk ;
+	}
+ @Transactional(propagation = Propagation.REQUIRED) 
+	public void update(EmployeDTO dto) {
+		// TODO Auto-generated method stub
+		
+	}
+ @Transactional(propagation = Propagation.REQUIRED) 
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public EmployeDTO findByLogin(String login) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public EmployeDTO authenticate(String login, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public EmployeDTO findByPK(long pk) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List search(EmployeDTO dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

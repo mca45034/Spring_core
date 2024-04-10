@@ -1,0 +1,25 @@
+package com.rays.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.rays.dto.UserDTO;
+@Repository
+public class UserDTOJDBCImp implements UserDAOInt{
+	private JDBCTemplate 
+
+	public long add(UserDTO dto) {
+		
+		return 0;
+	}
+
+	public void update(UserDTO dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

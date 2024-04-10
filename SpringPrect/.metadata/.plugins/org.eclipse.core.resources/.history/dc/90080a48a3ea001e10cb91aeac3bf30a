@@ -1,0 +1,19 @@
+package com.rays.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
+
+@Component("testUserService")
+public class testUserService {
+
+	public static void main(String[] args) {
+		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		testUserService user=context.getBean(testUserService.class);
+		testAdd();
+		
+	
+
+	}
+
+}

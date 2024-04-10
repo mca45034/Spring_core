@@ -1,0 +1,15 @@
+package com.rays.constuctor;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class EmployeMain {
+
+	public static void main(String[] args) {
+		ApplicationContext context=new ClassPathXmlApplicationContext("autowire-by-constructor-Empolye.xml");
+		EmployeService emps=context.getBean(EmployeService.class);
+		emps.testPrint();
+
+	}
+
+}

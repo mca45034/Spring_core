@@ -1,0 +1,12 @@
+package com.rays.test;
+
+import org.springframework.stereotype.Component;
+
+@Component("testEmployeService")
+public class testEmployeService {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

@@ -1,0 +1,57 @@
+package com.rays.test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
+
+import com.rays.dto.UserDTO;
+import com.rays.service.UserServiceInt;
+
+@Component("testUserService")
+public class testUserService {
+	@Autowired 
+	public UserServiceInt service=null;
+	public static void main(String[] args) {
+		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		testUserService test=context.getBean(testUserService.class);
+		test.testAdd();
+		//test.testUpdate();
+		//test.testDelete();
+		
+	
+
+	}
+
+	public void testDelete() {
+		service.delete(2L);
+		System.out.println("delete successfully...!!!!");
+	}
+
+	public void testUpdate() {
+		UserDTO dto=new UserDTO();
+		dto.setId(2);
+		dto.setFirstName("pert");
+		dto.setLastName("kirarwe");
+		dto.setLogin("pari@gmail.com");
+		dto.setPassword("pari@123");
+		service.update(dto);
+		System.out.println("update successfully...!!!!");
+		
+		
+	}
+
+	public  void testAdd() {
+		UserDTO dto=new  UserDTO();
+		dto.setId(2);
+		dto.setFirstName("pari");
+		dto.setLastName("kirar");
+		dto.setLogin("pari@gmail.com");
+		dto.setPassword("pari@123");
+		long pk=service.add(dto);
+		System.out.println("data added...."+pk);
+		
+				
+	}
+
+}

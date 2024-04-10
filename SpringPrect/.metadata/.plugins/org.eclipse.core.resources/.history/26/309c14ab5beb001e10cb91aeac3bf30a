@@ -1,0 +1,49 @@
+package com.rays.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
+
+import com.rays.dto.EmployeDTO;
+
+import com.rays.service.EmployeServiceInt;
+
+@Component("testEmployeService")
+public class testEmployeService {
+	public EmployeServiceInt service;
+
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		testEmployeService emp = (testEmployeService) context.getBean("testEmployeService");
+		emp.testAdd();
+		// emp.testUpdate();
+
+	}
+
+	public void testUpdate() {
+		EmployeDTO dto = new EmployeDTO();
+		dto.setId(2);
+		dto.setName("ram");
+		dto.setDepartment("hr");
+		dto.setSalary(23456);
+		dto.setAddress("indore");
+		dto.setC_name("hcl");
+		service.update(dto);
+		System.out.println("fxcfghjk");
+
+	}
+
+	public void testAdd() {
+		EmployeDTO dto = new EmployeDTO();
+		dto.setId(3);
+		dto.setName("ram");
+		dto.setDepartment("hr");
+		dto.setSalary(23456);
+		dto.setAddress("indore");
+		dto.setC_name("hcl");
+		long pk = service.add(dto);
+		System.out.println("fxcfghjk");
+
+	}
+
+}

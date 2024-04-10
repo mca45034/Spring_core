@@ -1,0 +1,115 @@
+package com.rays.test;
+
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
+
+import com.rays.dto.UserDTO;
+import com.rays.service.UserServiceInt;
+
+@Component("testUserService")
+public class testUserService {
+	@Autowired 
+	public UserServiceInt service=null;
+	public static void main(String[] args) {
+		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		testUserService test=context.getBean(testUserService.class);
+		test.testAdd();
+		//test.testUpdate();
+		//test.testDelete();
+		//test.testFindByLogin();
+		//test.testFindByPk();
+		//test.testAuthenticate();
+		//test.testSearch();
+		
+	
+
+	}
+
+	public void testSearch() {
+    UserDTO dto=new UserDTO();
+    List l=service.search(dto,0,5);
+    Iterator<UserDTO>it=l.iterator();
+    while(it.hasNext()) {
+    	dto=it.next();
+    	System.out.println(dto.getId());
+		System.out.println(dto.getFirstName());
+		System.out.println(dto.getLastName());
+		System.out.println(dto.getLogin());
+		System.out.println(dto.getPassword());
+    	
+    }
+	}
+
+	public void testAuthenticate() {
+		UserDTO dto=service.authenticate("r@gmail.com", "rk@123");
+		if(dto !=null) {
+			System.out.println(dto.getId());
+			System.out.println(dto.getFirstName());
+			System.out.println(dto.getLastName());
+			System.out.println(dto.getLogin());
+			System.out.println(dto.getPassword());
+			
+		}
+		else {
+			System.out.println("its id does not exist.....!!!!!");
+			
+		}
+	}
+
+	public void testFindByPk() {
+		UserDTO dto=service.findByPK(1);
+		if(dto !=null) {
+			System.out.println(dto.getId());
+			System.out.println(dto.getFirstName());
+			System.out.println(dto.getLastName());
+			System.out.println(dto.getLogin());
+			System.out.println(dto.getPassword());
+			
+		}
+		else {
+			System.out.println("its id does not exist.....!!!!!");
+		}
+	}
+
+	public void testFindByLogin() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void testDelete() {
+		service.delete(2L);
+		System.out.println("delete successfully...!!!!");
+	}
+
+	public void testUpdate() {
+		UserDTO dto=new UserDTO();
+		dto.setId(2);
+		dto.setFirstName("pert");
+		dto.setLastName("kirarwe");
+		dto.setLogin("pari@gmail.com");
+		dto.setPassword("pari@123");
+		service.update(dto);
+		System.out.println("update successfully...!!!!");
+		
+		
+	}
+
+	public  void testAdd() {
+		UserDTO dto=new  UserDTO();
+		dto.setId(7);
+		dto.setFirstName("pari");
+		dto.setLastName("kirar");
+		dto.setLogin("admin");
+		dto.setPassword("pari@123");
+		long pk=service.add(dto);
+		System.out.println("data added...."+pk);
+		
+				
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.rays.collection;
+
+import java.util.List;
+import java.util.Map;
+
+public class MyBean {
+	private List<String>list;
+	private Map<String,Object>map;
+
+}

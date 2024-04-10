@@ -1,0 +1,25 @@
+package com.rays.test;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
+
+@Component("testUserService")
+public class testUserService {
+	@Autowired 
+
+	public static void main(String[] args) {
+		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+		testUserService user=context.getBean(testUserService.class);
+		testAdd();
+		
+	
+
+	}
+
+	private static void testAdd() {
+				
+	}
+
+}

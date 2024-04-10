@@ -1,0 +1,49 @@
+package com.rays.dao;
+
+import java.util.List;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.rays.dto.EmployeDTO;
+
+public class EmployeDAOJDBCImp implements EmployeDAOInt{
+	private JdbcTemplate jdbcTemplate;
+
+	public long add(EmployeDTO dto) {
+		String sql="INSERT INTO EMPLOYE VALUES(?,?,?,?,?,?)";
+		long pk=jdbcTemplate.update(sql,dto.getId(),dto.getName(),dto.getDepartment(),dto.getSalary(),dto.getAddress(),dto.getC_name());
+		return 0;
+	}
+
+	public void update(EmployeDTO dto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public EmployeDTO findByLogin(String login) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public EmployeDTO authenticate(String login, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public EmployeDTO findByPK(long pk) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List search(EmployeDTO dto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}
